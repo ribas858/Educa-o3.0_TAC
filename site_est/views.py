@@ -30,7 +30,7 @@ def edu(request):
 
 def labs(request):
         
-    return render(request, 'site_est/labs.html')
+    return render(request, 'site_est/labs.html', {'n' : range(10) })
 
 def lab01(request):
     try:
