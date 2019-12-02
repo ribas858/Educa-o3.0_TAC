@@ -1,6 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import FileResponse, Http404
 
+from django.views.generic import TemplateView
+from django.core.files.storage import FileSystemStorage
+
+from .forms import BookForm
+from .models import Book
 # Create your views here.
 
 
@@ -29,8 +34,8 @@ def edu(request):
     return render(request, 'site_est/edu.html')
 
 def labs(request):
-        
-    return render(request, 'site_est/labs.html', {'n' : range(10) })
+    books = Book.objects.all()
+    return render(request, 'site_est/labs.html', {'books' : books })
 
 def lab01(request):
     try:
@@ -79,5 +84,20 @@ def lab08(request):
         return FileResponse(open('site_est/static/site_est/labs/lab_carolzinha.pdf', 'rb'), content_type='application/pdf')
     except FileNotFoundError:
         raise Http404()
+
+def book_list(request):
+    books = Book.objects.all()
+    return render(request, 'site_est/book_list.html', {'books' : books } )
+
+def upload(request):
+    if request.method == 'POST':
+        form = BookForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('http://localhost:8000/book_list')
+    else:
+        form = BookForm()
+
+    return render(request, 'site_est/upload.html', {'form': form} )
 
 

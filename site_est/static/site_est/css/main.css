@@ -3109,7 +3109,7 @@ body.is-preload #banner:before {
     background-color: #ce1b28;
     color: rgba(255, 255, 255, 0.75);
     background-attachment: fixed;
-    background-image: linear-gradient(rgba(29, 108, 255, 0.25), rgba(110, 125, 255, 0.25)), url('/static/site_est/images/cta01.jpg');
+    background-image: linear-gradient(rgba(184, 189, 255, 0.25), rgba(41, 169, 255, 0.349)), url('/static/site_est/images/cta01.jpg');
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;
