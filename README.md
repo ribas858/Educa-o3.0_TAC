@@ -1,4 +1,4 @@
-# Projeto Educaçã0 3.0 Tópicos Avançados em Computadores
+# Projeto Educaçã0 3.0 - Tópicos Avançados em Computadores
 
 Versão do Python - 2.7.12
 Versão do Python3 - 3.5.2
